@@ -167,8 +167,9 @@
         "status-icons": {
             "playing": "",
             "paused": ""
-        }
-        // "ignored-players": ["firefox"]
+        },
+        "min-length": 30,
+        "max-length": 100
     },
     "custom/notification": {
         "format": "{} {icon}",
