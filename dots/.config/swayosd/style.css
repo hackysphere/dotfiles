@@ -1,0 +1,41 @@
+/* manually styled with catppuccin mocha, commented where colors used */
+
+window#osd {
+  border-radius: 25px;
+  border: 2px solid rgb(49, 50, 68); /* mocha surface0 */
+  background: alpha(rgb(30, 30, 46), 0.9); /* mocha base */
+}
+
+#container {
+  margin: 16px;
+}
+
+image,
+label {
+  color: rgb(137, 180, 250); /* mocha blue */
+}
+
+progressbar:disabled,
+image:disabled {
+  opacity: 0.5;
+}
+
+progressbar {
+  min-height: 10px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+trough {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: rgb(69, 71, 90); /* mocha surface1 */
+}
+progress {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: rgb(127, 132, 156); /* mocha overlay1 */
+}
+

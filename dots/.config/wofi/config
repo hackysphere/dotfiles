@@ -1,0 +1,5 @@
+prompt=
+insensitive=true
+matching=multi-contains
+allow_images=true
+key_expand=Shift-space

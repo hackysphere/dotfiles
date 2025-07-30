@@ -1,0 +1,102 @@
+notes
+=====
+hyprland exec dispatchers should be set to use `uwsm app -- COMMAND` because of uwsm and systemd things
+hyprland environment variables should be moved to .config/uwsm/env and set using `export VARIABLE=VALUE` on separate lines
+  HYPR* and AQ_* variables should be moved instead to .config/uwsm/env-hyprland
+most things are themed with catppuccin mocha with blue main/accent color
+
+base
+====
+hyprland
+uwsm
+sddm
+kitty
+swaync
+pipewire
+wireplumber
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+xdg-desktop-portal-kde
+hyprpolkitagent
+qt5-wayland
+qt6-wayland
+waybar
+playerctl
+brightnessctl
+otf-font-awesome
+ttf-font-awesome
+nwg-look
+qt6ct-kde (AUR) (regular qt6ct does not work with KDE apps)
+xwaylandvideobridge (AUR)
+cliphist
+wl-clip-persist
+wofi
+wlogout (AUR)
+hyprpaper
+waypaper (AUR)
+nm-applet
+breeze
+breeze-gtk
+plasma-workspace (!!is this required?)
+plasma-desktop (for sddm theme)
+sddm-conf (AUR)
+hypridle
+hyprlock
+blueman
+swayosd
+hyprshot
+hyprpicker
+kwallet
+kwalletmanager
+archlinux-xdg-menu
+hyprsunset
+waybar-module-pacman-updates-git (AUR)
+libqalculate (calculator (just app?))
+stow (dotfiles management)
+git
+
+additional
+==========
+nwg-displays
+hyprsysteminfo (AUR)
+
+apps
+====
+neovim
+btop
+tmux
+fish
+fastfetch
+dolphin
+firefox
+timeshift
+xorg-xhost (timeshift)
+kdeconnect
+fcitx5-im
+
+theming
+=======
+catppuccin-fcitx5-git (fcitx5-im)
+
+individual config files
+=======================
+.bashrc
+.vscode/argv.json
+.config/electron-flags.conf
+.config/autostart/blueman.desktop
+.config/xdg-desktop-portal/hyprland-portals.conf
+
+commands
+========
+sudo usermod -aG input $USER
+sudo systemctl enable --now swayosd-libinput-backend.service
+XDG_MENU_PREFIX=arch- kbuildsycoca6 # run AFTER installing everything else and re-logging in
+sudo systemctl disable --now hyprsunset
+
+hyprpm update
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm enable hyprexpo
+
+app-specific commands
+=====================
+ELECTRON_OZONE_PLATFORM_HINT=x11 proton-mail # for proton mail, run until login and then it will be fine

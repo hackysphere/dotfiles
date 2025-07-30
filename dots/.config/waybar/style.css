@@ -1,0 +1,297 @@
+@import "mocha.css";
+/* all catppuccin themes should work, but latte might be a bit unreadable for some modules on right side */
+
+/* ==============
+ * GENERAL CONFIG
+ * ============== */
+
+* {
+    font-family: FontAwesome, Inter, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: alpha(@base, 0.4);
+}
+
+button {
+    border: none; /* removes plasma hover border styling */
+}
+
+.modules-left, .modules-center, .modules-right {
+    margin: 5px 0px;
+}
+
+/* ==========
+ * WORKSPACES
+ * ========== */
+
+#workspaces {
+    background-color: @surface0;
+    border-radius: 1rem;
+    margin: 0px 5px 0px 5px;
+}
+
+#workspaces button {
+    /* note: first margin parameter *heavily* controls padding for the whole bar!! */
+    background-color: @blue;
+    color: @base;
+    border-radius: 10px;
+    margin: 2px 2px;
+}
+
+#workspaces button:first-child {
+    margin-left: 5px;
+}
+
+#workspaces button:last-child {
+    margin-right: 5px;
+}
+
+#workspaces button.empty {
+    background-color: @overlay0;
+    color: @text;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @base
+}
+
+#workspaces button:hover {
+    /* place this at end before active and visible state for proper style overriding */
+    background-color: @flamingo;
+    color: @base;
+}
+
+#workspaces button.visible {
+    background-color: @sky;
+    color: @base;
+}
+
+#workspaces button.active {
+    background-color: @teal;
+    color: @base
+}
+
+
+/* =======
+ * MODULES
+ * ======= */
+
+/* general */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#custom-logout,
+#custom-notification,
+#window,
+#mpris,
+#privacy,
+#custom-sunset,
+#custom-updates {
+    background-color: @surface0;
+    color: @text;
+    border-radius: 1rem;
+    margin: 0px 2px; /* 2px because two modules are applying this at the same time */
+    padding: 0px 10px;
+}
+
+#network,
+#battery,
+#pulseaudio.source-muted,
+#custom-sunset.failed,
+#custom-logout {
+    padding-right: 15px; /* alignment fix due to font awesome icons */
+}
+
+.modules-right:last-child {
+    margin-right: 5px;
+}
+
+/* window */
+#window {
+    background-color: @surface1;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+window#waybar.floating #window {
+    background-color: @surface2;
+}
+
+/* clock */
+#clock {
+    color: @sapphire;
+}
+
+/* brightness */
+#backlight {
+    color: @yellow;
+}
+
+/* battery */
+#battery {
+    color: @green;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: @green;
+    color: @base;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @base;
+}
+
+/* power profiles */
+#power-profiles-daemon {
+    padding-right: 16px; /* weird icon placements */
+    color: @text;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: @green;
+    color: @base;
+}
+
+#power-profiles-daemon.performance {
+    background-color: @red;
+    color: @base;
+    padding-right: 12px; /* weird icon placements */
+}
+
+/* internet */
+#network {
+    color: @mauve;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+/* idle inhibitor */
+#idle_inhibitor.activated {
+    background-color: @overlay2; /* breaking style to make state very visible */
+    color: @base;
+}
+
+/* media */
+#mpris {
+    background-color: @sapphire;
+    color: @base;
+    min-width: 100px;
+}
+
+/* audio/pulseaudio */
+#pulseaudio {
+    color: @sky;
+}
+
+#pulseaudio.source-muted {
+    color: @lavender;
+}
+
+#pulseaudio.muted {
+    color: @maroon;
+}
+
+/* privacy indicators */
+#privacy-item.audio-in {
+    color: @peach;
+}
+
+#privacy-item.screenshare {
+    color: @blue;
+}
+
+/* logout */
+#custom-logout {
+    color: @rosewater;
+}
+
+/* sunset */
+#custom-sunset.night {
+    background-color: @peach;
+    color: @base;
+}
+
+#custom-sunset.failed {
+    background-color: @maroon;
+    color: @base;
+}
+
+/* updates */
+#custom-updates.has-updates {
+    background-color: @lavender;
+    color: @base;
+}
+
+/* notifications */
+#custom-notification.notification,
+#custom-notification.dnd-notification {
+    padding-bottom: 5px; /* alignment fix */
+}
+
+
+/* ========
+ * GROUPING
+ * ======== */
+
+/* general group */
+#network,
+#power-profiles-daemon,
+#backlight,
+#battery,
+#privacy,
+#custom-updates /* customs */ {
+    /* these are all items in the "middle" */
+    margin: 0px 0px;
+    border-radius: 0px;
+}
+
+#pulseaudio, /* general group */
+#idle_inhibitor, /* toggles */
+#custom-notification /* customs */ {
+    /* leftmost items */
+    margin-right: 0px;
+    border-radius: 1rem 0px 0px 1rem;
+}
+
+#clock, /* general group */
+#custom-sunset, /* toggles */
+#custom-logout /* customs */ {
+    /* rightmost items */
+    margin-left: 0px;
+    border-radius: 0px 1rem 1rem 0px;
+}
+
+
+/* =====
+ * OTHER
+ * ===== */
+
+/* tooltip */
+tooltip {
+    background-color: @base;
+    border: 1px solid @overlay2;
+}
+
+tooltip label {
+    color: @text;
+}
