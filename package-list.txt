@@ -91,7 +91,7 @@ commands
 sudo usermod -aG input $USER
 sudo systemctl enable --now swayosd-libinput-backend.service
 XDG_MENU_PREFIX=arch- kbuildsycoca6 # run AFTER installing everything else and re-logging in
-sudo systemctl disable --now hyprsunset
+# sudo systemctl disable --now hyprsunset # DO NOT RUN, if running make sure to enable hyprsunset in .config/hypr/hyprland.conf
 
 hyprpm update
 hyprpm add https://github.com/hyprwm/hyprland-plugins
