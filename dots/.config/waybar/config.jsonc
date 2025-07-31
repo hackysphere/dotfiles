@@ -16,7 +16,7 @@
         "custom/sunset",
         "pulseaudio",
         "privacy",
-        "network", // enable if not using nm-applet
+        // "network", // enable if not using nm-applet
         "power-profiles-daemon",
         // "cpu",
         // "memory",
