@@ -168,7 +168,7 @@
             "playing": "",
             "paused": ""
         },
-        "min-length": 30,
+        "min-length": 27,
         "max-length": 100
     },
     "custom/notification": {
@@ -216,7 +216,8 @@
             "updated": ""
         },
         "exec-if": "which waybar-module-pacman-updates",
-        "exec": "waybar-module-pacman-updates --interval-seconds 120--network-interval-seconds 600 --no-zero-output",
-        "on-click": "kitty eos-update --yay"
+        "exec": "waybar-module-pacman-updates --interval-seconds 60 --network-interval-seconds 600 --no-zero-output",
+        "on-click": "kitty eos-update --yay",
+        "hide-empty-text": true
     }
 }

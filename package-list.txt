@@ -1,8 +1,5 @@
 notes
 =====
-hyprland exec dispatchers should be set to use `uwsm app -- COMMAND` because of uwsm and systemd things
-hyprland environment variables should be moved to .config/uwsm/env and set using `export VARIABLE=VALUE` on separate lines
-  HYPR* and AQ_* variables should be moved instead to .config/uwsm/env-hyprland
 most things are themed with catppuccin mocha with blue main/accent color
 
 base
