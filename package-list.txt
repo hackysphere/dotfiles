@@ -1,6 +1,8 @@
 notes
 =====
 most things are themed with catppuccin mocha with blue main/accent color
+add following line if using google-earth-pro in /usr/share/applications/google-earth-pro.desktop (AUR)
+  Exec=env -u QT_QPA_PLATFORMTHEME -u QT_QPA_PLATFORM /opt/google/earth/pro/google-earth-pro 0.000000
 
 base
 ====
@@ -51,6 +53,8 @@ waybar-module-pacman-updates-git (AUR)
 libqalculate (calculator (just app?))
 stow (dotfiles management)
 git
+hunspell
+hunspell-en_us
 
 additional
 ==========
@@ -93,6 +97,8 @@ XDG_MENU_PREFIX=arch- kbuildsycoca6 # run AFTER installing everything else and r
 hyprpm update
 hyprpm add https://github.com/hyprwm/hyprland-plugins
 hyprpm enable hyprexpo
+
+set -U fish_greeting # in fish
 
 app-specific commands
 =====================
