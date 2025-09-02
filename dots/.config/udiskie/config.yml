@@ -2,3 +2,7 @@ program_options:
   tray: auto
   notify: true
   automount: false
+
+notifications:
+  device_mounted: 5
+  device_unmounted: false  

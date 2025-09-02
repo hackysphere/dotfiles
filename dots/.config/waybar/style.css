@@ -6,7 +6,7 @@
  * ============== */
 
 * {
-    font-family: FontAwesome, Inter, Helvetica, sans-serif;
+    font-family: FontAwesome, Inter, Helvetica, sans-serif, "Font Awesome 7 Free"; /* will need to eventually update the version number for FA */
     font-size: 13px;
 }
 
@@ -109,14 +109,6 @@ button {
     padding: 0px 10px;
 }
 
-#network,
-#battery,
-#pulseaudio.source-muted,
-#custom-sunset.failed,
-#custom-logout {
-    padding-right: 15px; /* alignment fix due to font awesome icons */
-}
-
 .modules-right:last-child {
     margin-right: 5px;
 }
@@ -161,7 +153,6 @@ window#waybar.floating #window {
 
 /* power profiles */
 #power-profiles-daemon {
-    padding-right: 16px; /* weird icon placements */
     color: @text;
 }
 
@@ -173,7 +164,6 @@ window#waybar.floating #window {
 #power-profiles-daemon.performance {
     background-color: @red;
     color: @base;
-    padding-right: 12px; /* weird icon placements */
 }
 
 /* internet */
@@ -195,7 +185,7 @@ window#waybar.floating #window {
 #mpris {
     background-color: @sapphire;
     color: @base;
-    min-width: 100px;
+    min-width: 50px;
 }
 
 /* audio/pulseaudio */

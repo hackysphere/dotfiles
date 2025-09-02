@@ -3,6 +3,10 @@ notes
 most things are themed with catppuccin mocha with blue main/accent color
 add following line if using google-earth-pro in /usr/share/applications/google-earth-pro.desktop (AUR)
   Exec=env -u QT_QPA_PLATFORMTHEME -u QT_QPA_PLATFORM /opt/google/earth/pro/google-earth-pro 0.000000
+  (remember to comment out other exec line)
+.config/hypr/battery.sh may need battery ID to be changed
+blueman-applet needs to have symbolic icon option enabled in plugin configuration
+fcitx5 theme is not configured automatically
 
 base
 ====
@@ -23,7 +27,6 @@ waybar
 playerctl
 brightnessctl
 otf-font-awesome
-ttf-font-awesome
 nwg-look
 qt6ct-kde (AUR) (regular qt6ct does not work with KDE apps)
 xwaylandvideobridge (AUR)
@@ -33,7 +36,7 @@ wofi
 wlogout (AUR)
 hyprpaper
 waypaper (AUR)
-nm-applet
+network-manager-applet
 breeze
 breeze-gtk
 plasma-workspace (!!is this required?)
@@ -55,6 +58,7 @@ stow (dotfiles management)
 git
 hunspell
 hunspell-en_us
+udiskie
 
 additional
 ==========
@@ -67,6 +71,7 @@ neovim
 btop
 tmux
 fish
+zoxide
 fastfetch
 dolphin
 firefox
@@ -91,8 +96,8 @@ commands
 ========
 sudo usermod -aG input $USER
 sudo systemctl enable --now swayosd-libinput-backend.service
+systemctl --user enable --now hyprsunset
 XDG_MENU_PREFIX=arch- kbuildsycoca6 # run AFTER installing everything else and re-logging in
-# sudo systemctl disable --now hyprsunset # DO NOT RUN, if running make sure to enable hyprsunset in .config/hypr/hyprland.conf
 
 hyprpm update
 hyprpm add https://github.com/hyprwm/hyprland-plugins
