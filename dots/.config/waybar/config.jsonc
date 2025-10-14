@@ -27,7 +27,7 @@
         // "hyprland/language",
         "battery",
         "clock",
-        "tray",
+        "group/traygroup",
         "custom/notification",
         "custom/updates",
         "custom/logout"
@@ -222,5 +222,20 @@
         "exec": "waybar-module-pacman-updates --interval-seconds 60 --network-interval-seconds 600 --no-zero-output",
         "on-click": "kitty eos-update --yay",
         "hide-empty-text": true
+    },
+    "group/traygroup": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/traylabel",
+            "tray"
+        ],
+        "drawer": {
+            "click-to-reveal": true,
+            "transition-left-to-right": false
+        }
+    },
+    "custom/traylabel": {
+        "format": "",
+        "tooltip-format": "click to toggle tray"
     }
 }
