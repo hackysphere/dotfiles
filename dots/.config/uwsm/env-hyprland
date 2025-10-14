@@ -13,3 +13,4 @@ export ELECTRON_OZONE_PLATFORM_HINT="auto"
 
 export XDG_MENU_PREFIX="arch-" # Dolphin app discovery
 export EDITOR="nvim" # Default editor app
+export VISUAL="nvim" # Default editor app
