@@ -79,6 +79,7 @@ timeshift
 xorg-xhost (timeshift)
 kdeconnect
 fcitx5-im
+smile
 
 theming
 =======
