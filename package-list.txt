@@ -67,7 +67,6 @@ hyprsysteminfo (AUR)
 
 apps
 ====
-neovim
 btop
 tmux
 fish
@@ -84,6 +83,16 @@ smile
 theming
 =======
 catppuccin-fcitx5-git (fcitx5-im)
+
+neovim
+======
+neovim
+git
+luarocks
+ttf-jetbrains-mono-nerd
+ripgrep
+tree-sitter-cli
+fd
 
 individual config files
 =======================

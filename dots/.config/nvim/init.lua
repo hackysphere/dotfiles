@@ -1,8 +1,14 @@
-vim.o.number = true
-vim.o.relativenumber = true
---vim.o.tabstop = 4 --this is not recommended, but I might enable it if it becomes annoying to not use 
-vim.o.shiftwidth = 4
-vim.o.autoindent = true
-vim.o.mouse = 'a'
-vim.cmd('colorscheme sorbet')
-vim.o.smartcase = true --case-insensitive search when all lowercase, case-sensitive when not all lowercase
+-- this is the only thing before lazy.nvim because it contains options that will work if everything below fails
+require("config.options")
+
+vim.api.nvim_create_autocmd({'TextYankPost'}, {
+    desc = "Highlight yanked text",
+    -- create an autogroup so that this can't be "listened" to twice (in other words, make sure no double JS listeners get attached)
+    group = vim.api.nvim_create_augroup("highlight-yank", {clear = true}),
+    callback = function(event)
+	vim.highlight.on_yank()
+    end,
+})
+
+require("config.lazy")
+require("config.keymaps")
