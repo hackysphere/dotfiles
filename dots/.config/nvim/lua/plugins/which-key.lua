@@ -7,6 +7,7 @@ return {
 	    { "<leader>o", group = "[O]pen..." },
 	    { "<leader>f", group = "[F]ind..." },
 	    { "<leader>g", group = "[G]itHub..." },
+        { "<leader>l", group = "[L]SP..." },
 	},
     },
 }
