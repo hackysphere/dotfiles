@@ -14,5 +14,7 @@ return {
 				auto_show = true,
 			},
 		},
+		signature = { enabled = true, },
+		-- use Ctrl-k for showing the signature (insert mode only)
 	},
 }

@@ -93,6 +93,7 @@ ttf-jetbrains-mono-nerd
 ripgrep
 tree-sitter-cli
 fd
+curl
 
 individual config files
 =======================
