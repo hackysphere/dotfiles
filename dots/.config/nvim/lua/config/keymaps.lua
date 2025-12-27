@@ -20,7 +20,8 @@ local function telescopeMaps()
 end
 
 local function snacksMaps()
-    ---@module 'snacks'
+    vim.keymap.set('n', '<leader>t', Snacks.terminal.open, { desc = "Open [t]erminal"})
+    vim.keymap.set('n', '<leader>og', Snacks.lazygit.open, { desc = "Open Lazy[g]it" })
 
     vim.keymap.set('n', '<leader>t', Snacks.terminal.open, { desc = "Open [t]erminal"})
     vim.keymap.set('n', '<leader>og', Snacks.lazygit.open, { desc = "Open Lazy[g]it" })
@@ -74,6 +75,25 @@ local function toolMaps()
     vim.keymap.set('n', '<leader>rl', function() require("lint").try_lint() end, {desc="Run [l]inter manually"})
 end
 
+local function dapMaps()
+    vim.keymap.set('n', '<leader>bn', function() require("dap").continue({new=true}) end, {desc="[N]ew session (DAP)"})
+    vim.keymap.set('n', '<leader>bt', function() require("dap").terminate() end, {desc="[T]erminate session (DAP)"})
+    vim.keymap.set('n', '<leader>bx', function() require("dap").disconnect() end, {desc="Disconnect session (DAP)"})
+
+    vim.keymap.set('n', '<leader>bb', function() require("dap").toggle_breakpoint() end, {desc="Toggle [b]reakpoint (DAP)"})
+    vim.keymap.set('n', '<leader>bc', function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, {desc="Set [c]onditional breakpoint (DAP)"})
+    vim.keymap.set('n', '<leader>bl', function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, {desc="Set [l]ogpoint (DAP)"})
+    vim.keymap.set('n', '<leader>bd', function() require("dap").clear_breakpoints() end, {desc="[D]elete all breakpoints (DAP)"})
+
+    vim.keymap.set('n', '<F5>', function() require("dap").continue() end, {desc="[C]ontinue (DAP)"})
+    vim.keymap.set('n', '<F10>', function() require("dap").step_over() end, {desc="Step [o]ver (DAP)"})
+    vim.keymap.set('n', '<F11>', function() require("dap").step_into() end, {desc="Step [i]nto (DAP)"})
+    vim.keymap.set('n', '<F12>', function() require("dap").step_out() end, {desc="Step o[u]t (DAP)"})
+
+    vim.keymap.set({'n', 'v'}, '<leader>bh', function() require("dap.ui.widgets").hover() end, {desc="[H]over (DAP)"})
+    vim.keymap.set('n', '<leader>bm', function() require("dap-view").toggle() end, {desc="Toggle [m]enu (DAP)"})
+end
+
 -- these are keymaps that are either non-plugin-dependent, only one is necessary for a plugin, or really important
 vim.keymap.set('n', '<leader>ol', ':Lazy<CR>', {desc = "Open [L]azy.nvim"})
 vim.keymap.set('n', '<leader>om', ':Mason<CR>', {desc = "Open [M]ason"})
@@ -88,4 +108,5 @@ diagnosticMaps()
 windowMaps()
 sessionMaps()
 toolMaps()
--- Trouble mappings are in the plugin file
+dapMaps()
+-- trouble.nvim mappings are in the plugin file

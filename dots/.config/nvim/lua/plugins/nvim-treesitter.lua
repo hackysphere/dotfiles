@@ -1,3 +1,5 @@
+-- TODO: eventually figure out how to do autoinstalls of new parsers
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,

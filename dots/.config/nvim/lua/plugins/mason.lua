@@ -1,18 +1,22 @@
 -- this is the mason config
+-- this is also the config for LSP
 -- see conform for formatter-specific config
 -- see nvim-lint for linter-specific config
+-- see nvim-dap for DAP-specific config
 
 return {
 	"mason-org/mason-lspconfig.nvim",
 	opts = {
 		ensure_installed = {
 			"lua_ls",
-			"basedpyright",
+			-- "basedpyright",
 			"ts_ls",
 			"astro",
 			"svelte",
 			"html",
 			"cssls",
+			"ty",
+			"ruff",
 		},
 	},
 	dependencies = {
@@ -26,11 +30,13 @@ return {
 					-- formatters
 					"black",
 					"prettier",
-					"ruff",
 					"stylua",
 
 					-- linters
 					"jsonlint",
+
+					-- DAPs
+					"debugpy",
 				},
 			},
 		},

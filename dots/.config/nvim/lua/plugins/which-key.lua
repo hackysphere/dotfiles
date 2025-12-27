@@ -13,6 +13,7 @@ return {
 			{ "<leader>x", group = "Trouble..." },
 			{ "<leader>s", group = "[S]ession..." },
 			{ "<leader>r", group = "[R]un tool..." },
+			{ "<leader>b", group = "De[b]ug..." },
 		},
 	},
 }
