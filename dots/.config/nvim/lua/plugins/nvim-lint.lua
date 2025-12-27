@@ -8,6 +8,8 @@ return {
 	},
 	events = { "BufReadPost", "BufWritePost", "InsertLeave" },
 	config = function()
+		require("lint").linters_by_ft = {}
+
 		vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
 			desc = "Run linter(s) on saving file",
 			group = vim.api.nvim_create_augroup("nvim-lint-autorun", { clear = true }),

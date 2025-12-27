@@ -14,6 +14,10 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.splitbelow = true -- Split down by default when using split
 vim.opt.splitright = true -- Split to the right by default when using vsplit
 
+-- spellcheck
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
 vim.opt.mouse = 'a' -- enable mouse *everywhere*
 vim.cmd.colorscheme('sorbet')
 vim.opt.ignorecase = true -- ignore case in searches and substitutions; required for smartcase to function
