@@ -92,6 +92,7 @@ local function dapMaps()
 
     vim.keymap.set({'n', 'v'}, '<leader>bh', function() require("dap.ui.widgets").hover() end, {desc="[H]over (DAP)"})
     vim.keymap.set('n', '<leader>bm', function() require("dap-view").toggle() end, {desc="Toggle [m]enu (DAP)"})
+    vim.keymap.set({'n', 'v'}, '<leader>bw', function() require("dap-view").add_expr() end, {desc="[W]atch expression (DAP)"})
 end
 
 -- these are keymaps that are either non-plugin-dependent, only one is necessary for a plugin, or really important
