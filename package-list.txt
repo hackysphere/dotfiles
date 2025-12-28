@@ -94,6 +94,7 @@ ripgrep
 tree-sitter-cli
 fd
 curl
+lazygit
 
 individual config files
 =======================

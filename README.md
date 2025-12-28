@@ -9,5 +9,3 @@ if not working:
 2. `git restore .`
 3. `stow dots`
 
-## nvim
-my nvim config (just lazyvim for now) is stored in `nvim/`, load using same commands but with `nvim` instead of `dots`
