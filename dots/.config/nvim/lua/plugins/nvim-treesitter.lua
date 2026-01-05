@@ -16,10 +16,10 @@ return {
 			"javascript",
 			"typescript",
 			"json",
-			"jsonc",
 			"markdown",
 			"markdown_inline",
 			"yaml",
+			"css",
 		})
 
 		vim.api.nvim_create_autocmd('FileType', {
