@@ -9,7 +9,7 @@ return {
 	opts = {
 		ensure_installed = {
 			"lua_ls",
-			"basedpyright", -- should figure out how to only use this for renaming
+			"basedpyright", -- TODO: should figure out how to only use this for renaming
 			"ts_ls",
 			"astro",
 			"svelte",
