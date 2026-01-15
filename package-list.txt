@@ -27,6 +27,8 @@ waybar
 playerctl
 brightnessctl
 otf-font-awesome
+inter-font
+ttf-jetbrains-mono
 nwg-look
 qt6ct-kde (AUR) (regular qt6ct does not work with KDE apps)
 xwaylandvideobridge (AUR)
