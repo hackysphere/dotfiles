@@ -19,7 +19,7 @@ button {
 }
 
 .modules-left, .modules-center, .modules-right {
-    margin: 5px 0px;
+    margin: 3px 0px;
 }
 
 /* ==========
@@ -33,7 +33,7 @@ button {
 }
 
 #workspaces button {
-    /* note: first margin parameter *heavily* controls padding for the whole bar!! */
+    /* note: first margin parameter controls "height" of all bar elements */
     background-color: @blue;
     color: @base;
     border-radius: 10px;
@@ -100,12 +100,15 @@ button {
 #mpris,
 #privacy,
 #custom-sunset,
-#custom-updates {
+#custom-updates,
+#traygroup,
+#tray,
+#custom-traylabel {
     background-color: @surface0;
     color: @text;
     border-radius: 1rem;
     margin: 0px 2px; /* 2px because two modules are applying this at the same time */
-    padding: 0px 10px;
+    padding: 0px 9px;
 }
 
 .modules-right:last-child {
@@ -276,23 +279,22 @@ window#waybar.floating #window {
  * ==== */
 
 #traygroup {
+    /* element that holds the tray and tray icon */
     background-color: @teal;
-    color: @surface0;
-    border-radius: 1rem;
-    margin: 0px 2px; /* 2px because two modules are applying this at the same time */
-    padding: 0px 10px 0px 0px; /* padding is needed for the other border radius to show, but it is removed to hide it */
+    padding: 0px;
 }
 
 #custom-traylabel {
-    margin-left: 10px; /* need to add margin to realign icon in closed state (because padding was removed for the tray */
+    /* element that holds the tray icon */
+    background-color: @teal;
+    color: @surface0;
+    margin: 0px;
 }
 
 #tray {
-    background-color: @mantle; /* note to self: surface1 makes it harder to see tray icons, and surface0 makes it less apparent that this is connected to the group */
-    color: @text;
-    padding: 0px 10px;
+    background-color: @mantle;
     margin: 0px;
-    border-radius: 1rem;
+    border-radius: 1rem 0 0 1rem;
 }
 
 

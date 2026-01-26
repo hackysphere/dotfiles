@@ -1,9 +1,6 @@
 notes
 =====
 most things are themed with catppuccin mocha with blue main/accent color
-add following line if using google-earth-pro in /usr/share/applications/google-earth-pro.desktop (AUR)
-  Exec=env -u QT_QPA_PLATFORMTHEME -u QT_QPA_PLATFORM /opt/google/earth/pro/google-earth-pro 0.000000
-  (remember to comment out other exec line)
 .config/hypr/battery.sh may need battery ID to be changed
 blueman-applet needs to have symbolic icon option enabled in plugin configuration
 fcitx5 theme is not configured automatically
@@ -119,6 +116,3 @@ hyprpm enable hyprexpo
 
 set -U fish_greeting # in fish
 
-app-specific commands
-=====================
-ELECTRON_OZONE_PLATFORM_HINT=x11 proton-mail # for proton mail, run until login and then it will be fine
