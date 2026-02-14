@@ -8,8 +8,12 @@ return {
 	opts = {
 		lazygit = { enabled = true, },
 		github = { enabled = true, },
-		picker = { enabled = true, },
 		terminal = { enabled = true, },
+		picker = {
+			enabled = true,
+			hidden = true,
+			ignored = true,
+		},
 		explorer = {
 			replace_netrw = true,
 			trash = true,

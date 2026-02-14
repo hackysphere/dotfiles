@@ -20,6 +20,7 @@ return {
 			"markdown_inline",
 			"yaml",
 			"css",
+			"caddy",
 		})
 
 		vim.api.nvim_create_autocmd('FileType', {

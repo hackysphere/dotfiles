@@ -24,3 +24,12 @@ vim.diagnostic.config({
 require("config.lazy")
 require("config.keymaps")
 require("config.autocmds")
+
+vim.filetype.add({
+	extension = {
+		caddy = 'caddy',
+	},
+	filename = {
+		Caddyfile = 'caddy',
+	},
+})
