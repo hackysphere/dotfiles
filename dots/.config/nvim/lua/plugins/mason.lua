@@ -17,6 +17,11 @@ return {
 			"cssls",
 			"ty",
 			"ruff",
+			"docker_language_server",
+			"docker_compose_language_service",
+			"oxlint",
+			"gopls",
+			"yamlls",
 		},
 	},
 	dependencies = {
@@ -28,8 +33,7 @@ return {
 				auto_update = true,
 				ensure_installed = {
 					-- formatters
-					"black",
-					"prettier",
+					"oxfmt",
 					"stylua",
 
 					-- linters

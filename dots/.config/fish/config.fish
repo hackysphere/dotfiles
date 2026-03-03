@@ -5,6 +5,8 @@ if status is-interactive
 	abbr compose docker compose
 
 	alias datawriting "watch -n1 'cat /proc/meminfo | grep Dirty'"
+
+	export PATH="/home/hcks/.local/share/../bin:$PATH"
 end
 
 zoxide init fish | source
