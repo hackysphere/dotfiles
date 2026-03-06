@@ -78,6 +78,8 @@ xorg-xhost (timeshift)
 kdeconnect
 fcitx5-im
 smile
+yazi
+lsd
 
 theming
 =======
@@ -94,6 +96,8 @@ tree-sitter-cli
 fd
 curl
 lazygit
+delta
+bat
 
 individual config files
 =======================

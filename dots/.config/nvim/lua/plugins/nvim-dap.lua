@@ -32,6 +32,12 @@ return {
 				auto_toggle = true,
 			},
 		},
+		-- {
+		-- 	"mfussenegger/nvim-dap-python",
+		-- 	config = function()
+		-- 		require("dap-python").setup("~/Documents/Repos/CS-FINAL/app/backend/.venv/bin/python")
+		-- 	end,
+		-- },
 	},
 	opts = {
 		handlers = {},
