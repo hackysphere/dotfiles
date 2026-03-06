@@ -96,7 +96,7 @@ tree-sitter-cli
 fd
 curl
 lazygit
-delta
+git-delta
 bat
 
 neovim::mason
@@ -126,4 +126,6 @@ hyprpm add https://github.com/hyprwm/hyprland-plugins
 hyprpm enable hyprexpo
 
 set -U fish_greeting # in fish
+
+bat cache --build
 
