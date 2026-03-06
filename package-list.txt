@@ -99,6 +99,13 @@ lazygit
 delta
 bat
 
+neovim::mason
+=============
+npm
+pnpm
+go
+uv
+
 individual config files
 =======================
 .bashrc
