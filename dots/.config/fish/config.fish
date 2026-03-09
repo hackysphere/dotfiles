@@ -3,6 +3,7 @@ if status is-interactive
 	fish_config theme choose catppuccin-mocha
 
 	export PATH="/home/hcks/.local/share/../bin:$PATH"
+	set EDITOR nvim
 
 	abbr compose docker compose
 	abbr l "lsd -lg"

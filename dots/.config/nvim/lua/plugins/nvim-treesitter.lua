@@ -21,6 +21,8 @@ return {
 			"yaml",
 			"css",
 			"caddy",
+			"go",
+			"svelte",
 		})
 
 		vim.api.nvim_create_autocmd('FileType', {

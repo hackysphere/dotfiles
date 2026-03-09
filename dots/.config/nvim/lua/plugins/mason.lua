@@ -8,8 +8,9 @@ return {
 	"mason-org/mason-lspconfig.nvim",
 	opts = {
 		ensure_installed = {
+			"ast_grep",
 			"lua_ls",
-			"basedpyright", -- TODO: should figure out how to only use this for renaming
+			-- "basedpyright",
 			"ts_ls",
 			"astro",
 			"svelte",
@@ -19,9 +20,11 @@ return {
 			"ruff",
 			"docker_language_server",
 			"docker_compose_language_service",
-			"oxlint",
+			-- "oxlint",  -- currently doesn't support svelte
+			"biome",
 			"gopls",
 			"yamlls",
+			"jsonls",
 		},
 	},
 	dependencies = {
@@ -33,7 +36,7 @@ return {
 				auto_update = true,
 				ensure_installed = {
 					-- formatters
-					"oxfmt",
+					-- "oxfmt",  -- currently doesn't support svelte
 					"stylua",
 
 					-- linters
