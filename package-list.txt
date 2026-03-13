@@ -29,12 +29,11 @@ ttf-jetbrains-mono
 nwg-look
 qt6ct-kde (AUR) (regular qt6ct does not work with KDE apps)
 xwaylandvideobridge (AUR)
-cliphist
-wl-clip-persist
+clipse
+wl-clipboard
 wofi
+wpaperd
 wlogout (AUR)
-hyprpaper
-waypaper (AUR)
 network-manager-applet
 breeze
 breeze-gtk
