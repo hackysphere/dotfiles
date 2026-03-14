@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 	fish_config theme choose catppuccin-mocha
 
-	export PATH="/home/hcks/.local/share/../bin:$PATH"
+	export PATH="$HOME/.local/bin:$PATH"
 	set EDITOR nvim
 
 	abbr compose docker compose
