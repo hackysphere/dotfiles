@@ -7,7 +7,7 @@ return {
 	    auto_integrations = true,
 	})
 
-	vim.cmd.colorscheme('catppuccin')
+	vim.cmd.colorscheme('catppuccin-nvim')
     end,
 }
 
