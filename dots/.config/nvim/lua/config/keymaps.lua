@@ -156,6 +156,7 @@ end
 -- these are keymaps that are either non-plugin-dependent, only one is necessary for a plugin, or really important
 vim.keymap.set("n", "<leader>ol", ":Lazy<CR>", { desc = "Open [L]azy.nvim" })
 vim.keymap.set("n", "<leader>om", ":Mason<CR>", { desc = "Open [M]ason" })
+vim.keymap.set("n", "<leader>p", ":Markview splitToggle<CR>", { desc = "[P]review file"})
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>") -- unhighlights searches after pressing Esc, but still highlights future search requests
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "gd", function()

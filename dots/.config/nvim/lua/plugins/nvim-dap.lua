@@ -1,4 +1,4 @@
--- this is the formatter configuration, see mason.lua for the "general" config
+-- this is the DAP configuration, see mason.lua for the "general" config
 -- DO NOT configure mason.nvim here, it is just a dependency
 
 return {
@@ -27,17 +27,11 @@ return {
 			opts = {
 				winbar = {
 					sections = { "watches", "scopes", "exceptions", "breakpoints", "threads", "repl", "console" },
-					controls = { enabled = true, },
+					controls = { enabled = true },
 				},
 				auto_toggle = true,
 			},
 		},
-		-- {
-		-- 	"mfussenegger/nvim-dap-python",
-		-- 	config = function()
-		-- 		require("dap-python").setup("~/Documents/Repos/CS-FINAL/app/backend/.venv/bin/python")
-		-- 	end,
-		-- },
 	},
 	opts = {
 		handlers = {},
