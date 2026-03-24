@@ -11,7 +11,7 @@ return {
 		require("lint").linters_by_ft = {}
 
 		vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
-			desc = "Run linter(s) on saving file",
+			desc = "Run linter(s) after editing file",
 			group = vim.api.nvim_create_augroup("nvim-lint-autorun", { clear = true }),
 			callback = function()
 				require("lint").try_lint()

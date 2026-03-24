@@ -63,12 +63,16 @@ local function lspMaps()
 	end, { desc = "Toggle inlay [h]ints (LSP)" })
 	vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { desc = "Get LSP [I]nfo" })
 
+	vim.keymap.set("n", "grd", function()
+		vim.lsp.buf.definition()
+	end, { desc = "Go to [d]efinition" })
+
 	-- nvim default keymaps:
 	--- gra: run a code action (on diagnostic)
 	--- gri: go to implementation
 	--- grn: rename symbol
 	--- grr: go to reference(s)
-	--- grt: go to type definition (find the definition of the type of the symbol)
+	--- grt: go to type definition
 	--- gO: list all document symbols
 	--- [insert] Ctrl-s: signature help (shows documentation, unlike blink.cmp (Ctrl-k))
 end
@@ -94,15 +98,6 @@ local function sessionMaps()
 	vim.keymap.set("n", "<leader>ss", function()
 		require("persistence").select()
 	end, { desc = "[S]elect a session" })
-end
-
-local function toolMaps()
-	vim.keymap.set("n", "<leader>rf", function()
-		require("conform").format()
-	end, { desc = "Run standalone [f]ormatter" })
-	vim.keymap.set("n", "<leader>rl", function()
-		require("lint").try_lint()
-	end, { desc = "Run [l]inter manually" })
 end
 
 local function dapMaps()
@@ -156,15 +151,12 @@ end
 -- these are keymaps that are either non-plugin-dependent, only one is necessary for a plugin, or really important
 vim.keymap.set("n", "<leader>ol", ":Lazy<CR>", { desc = "Open [L]azy.nvim" })
 vim.keymap.set("n", "<leader>om", ":Mason<CR>", { desc = "Open [M]ason" })
-vim.keymap.set("n", "<leader>p", ":Markview splitToggle<CR>", { desc = "[P]review file"})
+vim.keymap.set("n", "<leader>rf", function()
+	require("conform").format()
+end, { desc = "Run [f]ormatter" })
+vim.keymap.set("n", "<leader>p", ":Markview splitToggle<CR>", { desc = "[P]review file" })
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>") -- unhighlights searches after pressing Esc, but still highlights future search requests
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "gd", function()
-	vim.lsp.buf.definition()
-end, { desc = "Go to [d]efinition" })
-vim.keymap.set("n", "grd", function()
-	vim.lsp.buf.definition()
-end, { desc = "Go to [d]efinition" })
 
 disableArrowMaps()
 snacksMaps()
@@ -173,6 +165,5 @@ lspMaps()
 diagnosticMaps()
 windowMaps()
 sessionMaps()
-toolMaps()
 dapMaps()
 -- trouble.nvim mappings are in the plugin file

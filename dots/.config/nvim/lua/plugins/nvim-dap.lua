@@ -32,8 +32,17 @@ return {
 				auto_toggle = true,
 			},
 		},
+		{
+			"mfussenegger/nvim-dap-python",
+			config = function()
+				local python_path = vim.fs.joinpath(vim.fn.stdpath("data"), "mason/packages/debugpy/venv/bin/python")
+				require("dap-python").setup(python_path)
+			end,
+		},
 	},
 	opts = {
-		handlers = {},
+		handlers = {
+			python = function() end,
+		},
 	},
 }
