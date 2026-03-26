@@ -23,6 +23,8 @@ return {
 			"caddy",
 			"go",
 			"svelte",
+			"hyprlang",
+			"fish",
 		})
 
 		vim.api.nvim_create_autocmd('FileType', {
@@ -34,9 +36,9 @@ return {
 				vim.treesitter.start()
 
 				-- enable autofold
-				vim.opt.foldmethod = 'expr'
-				vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-				vim.opt.foldlevel = 99 -- make folds open when opening new file
+				vim.o.foldmethod = 'expr'
+				vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+				vim.o.foldlevel = 99 -- make folds open when opening new file
 
 				-- indentation (experimental)
 				-- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

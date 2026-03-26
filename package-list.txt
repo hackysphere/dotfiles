@@ -31,6 +31,7 @@ qt6ct-kde (AUR) (regular qt6ct does not work with KDE apps)
 xwaylandvideobridge (AUR)
 clipse
 wl-clipboard
+wl-clip-persist
 wofi
 wpaperd
 wlogout (AUR)
@@ -62,6 +63,7 @@ additional
 ==========
 nwg-displays
 hyprsysteminfo (AUR)
+ghostty (this is a second terminal with mostly the same config as kitty; installed for an alternative to kitty)
 
 apps
 ====
