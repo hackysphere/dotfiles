@@ -3,8 +3,10 @@ if status is-interactive
 	fish_config theme choose catppuccin-mocha
 
 	export PATH="$HOME/.local/bin:$PATH"
+	set VISUAL nvim
 	set EDITOR nvim
 
+	abbr kssh kitten ssh
 	abbr compose docker compose
 	abbr l "lsd -lg"
 	alias ll "lsd -l"

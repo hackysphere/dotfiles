@@ -6,9 +6,9 @@ return {
 	---@module 'snacks'
 	---@type snacks.Config
 	opts = {
-		lazygit = { enabled = true, },
-		github = { enabled = true, },
-		terminal = { enabled = true, },
+		lazygit = { enabled = true },
+		github = { enabled = true },
+		terminal = { enabled = true },
 		picker = {
 			enabled = true,
 			hidden = true,
@@ -31,7 +31,12 @@ return {
 			-- this *shouldn't* conflict with gitsigns...
 			folds = {
 				open = true,
-				git_hl = false
+				git_hl = false,
+			},
+		},
+		scroll = {
+			animate = {
+				duration = { step = 10, total = 100 },
 			},
 		},
 	},

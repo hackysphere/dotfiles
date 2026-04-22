@@ -51,14 +51,14 @@ local function snacksMaps()
 end
 
 local function lspMaps()
-	vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { desc = "[R]estart LSP" })
+	vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>", { desc = "[R]estart LSP" })
 	vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[F]ormat file (LSP)" })
 	vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Run code [a]ction (LSP)" })
 	vim.keymap.set("n", "<leader>ln", vim.lsp.buf.rename, { desc = "Re[n]ame symbol (LSP)" })
 	vim.keymap.set("n", "<leader>lh", function()
 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 	end, { desc = "Toggle inlay [h]ints (LSP)" })
-	vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { desc = "Get LSP [I]nfo" })
+	vim.keymap.set("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "Get LSP [I]nfo" })
 
 	vim.keymap.set("n", "grd", function()
 		vim.lsp.buf.definition()
@@ -87,6 +87,11 @@ local function windowMaps()
 	vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Focus left window" })
 	vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Focus right window" })
 	vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Focus lower window" })
+
+	vim.keymap.set("n", "<C-left>", "<C-w><", { desc = "Decrease window width" })
+	vim.keymap.set("n", "<C-down>", "<C-w>-", { desc = "Decrease window height" })
+	vim.keymap.set("n", "<C-up>", "<C-w>+", { desc = "Increase window height" })
+	vim.keymap.set("n", "<C-right>", "<C-w>>", { desc = "Increase window width" })
 end
 
 local function sessionMaps()
