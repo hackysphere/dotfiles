@@ -107,6 +107,13 @@ pnpm
 go
 uv
 
+yazi
+====
+mediainfo
+trash-cli
+wl-clipboard
+imagemagick
+
 individual config files
 =======================
 .bashrc
@@ -130,3 +137,4 @@ set -U fish_greeting # in fish
 
 bat cache --build
 
+ya pkg install

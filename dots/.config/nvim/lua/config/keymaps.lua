@@ -163,6 +163,8 @@ vim.keymap.set("n", "<leader>m", function()
 	require("conform").format()
 end, { desc = "For[m]at" })
 vim.keymap.set("n", "<leader>p", ":Markview splitToggle<CR>", { desc = "[P]review file" })
+vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<CR>", { desc = "Show [g]it [b]lame "})
+
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>") -- unhighlights searches after pressing Esc, but still highlights future search requests
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
