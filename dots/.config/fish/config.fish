@@ -6,7 +6,7 @@ if status is-interactive
 	set VISUAL nvim
 	set EDITOR nvim
 
-	abbr kssh kitten ssh
+	abbr ks kitten ssh
 	abbr compose docker compose
 	abbr l "lsd -lg"
 	alias ll "lsd -l"

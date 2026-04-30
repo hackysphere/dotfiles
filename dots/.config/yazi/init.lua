@@ -3,3 +3,4 @@ require("kdeconnect-send"):setup({
 })
 
 require("recycle-bin"):setup()
+require("sshfs"):setup()

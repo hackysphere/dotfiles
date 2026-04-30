@@ -33,6 +33,11 @@ use = "boydaihungst/mediainfo"
 rev = "49f5ab7"
 hash = "6e3b5e58f985cc2d625e0030dc35b1b2"
 
+[[plugin.deps]]
+use = "uhs-robert/sshfs"
+rev = "7ba17a8"
+hash = "f6927372436c780965035310821a40d9"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "0670801"
