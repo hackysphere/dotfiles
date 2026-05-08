@@ -114,6 +114,12 @@ trash-cli
 wl-clipboard
 imagemagick
 
+mpd
+===
+mpd
+mpd-mpris
+rmpc (or any other client)
+
 individual config files
 =======================
 .bashrc
@@ -127,6 +133,8 @@ commands
 sudo usermod -aG input $USER
 sudo systemctl enable --now swayosd-libinput-backend.service
 systemctl --user enable --now hyprsunset
+systemctl --user enable --now mpd
+systemctl --user enable --now mpd-mpris
 XDG_MENU_PREFIX=arch- kbuildsycoca6 # run AFTER installing everything else and re-logging in
 
 hyprpm update
