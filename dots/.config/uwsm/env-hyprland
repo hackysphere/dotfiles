@@ -16,3 +16,4 @@ export EDITOR="nvim" # Default editor app
 export VISUAL="nvim" # Default editor app
 
 export SHELL="fish"
+export BROWSER="zen-browser"

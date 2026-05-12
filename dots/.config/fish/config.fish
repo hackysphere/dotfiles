@@ -15,6 +15,7 @@ if status is-interactive
 
 	alias datawriting "watch -n1 'cat /proc/meminfo | grep Dirty'"
 	alias clock "tty-clock -sBcC4"
+	alias metadataclear "exiftool -all= --icc_profile:all -tagsfromfile @ -colorspacetags"
 
 	abbr cat bat
 	abbr ls lsd
