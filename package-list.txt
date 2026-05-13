@@ -137,10 +137,6 @@ systemctl --user enable --now mpd
 systemctl --user enable --now mpd-mpris
 XDG_MENU_PREFIX=arch- kbuildsycoca6 # run AFTER installing everything else and re-logging in
 
-hyprpm update
-hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm enable hyprexpo
-
 set -U fish_greeting # in fish
 
 bat cache --build
