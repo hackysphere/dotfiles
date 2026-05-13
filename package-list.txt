@@ -109,10 +109,13 @@ uv
 
 yazi
 ====
+file
 mediainfo
 trash-cli
 wl-clipboard
 imagemagick
+resvg
+poppler
 
 mpd
 ===
