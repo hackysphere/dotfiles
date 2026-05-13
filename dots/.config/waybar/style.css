@@ -99,6 +99,7 @@ button {
 #window,
 #mpris,
 #privacy,
+#language,
 #custom-sunset,
 #custom-updates,
 #traygroup,
@@ -190,6 +191,10 @@ window#waybar.floating #window {
     min-width: 50px;
 }
 
+#language {
+    color: @mauve;
+}
+
 /* audio/pulseaudio */
 #pulseaudio {
     color: @sky;
@@ -245,30 +250,31 @@ window#waybar.floating #window {
  * GROUPING
  * ======== */
 
+/* these are all items in the "middle" */
 /* general group */
+#pulseaudio,
 #network,
 #power-profiles-daemon,
 #backlight,
 #battery,
 #privacy,
 #custom-updates /* customs */ {
-    /* these are all items in the "middle" */
     margin: 0px 0px;
     border-radius: 0px;
 }
 
-#pulseaudio, /* general group */
+/* leftmost items */
+#language, /* general group */
 #idle_inhibitor, /* toggles */
 #custom-notification /* customs */ {
-    /* leftmost items */
     margin-right: 0px;
     border-radius: 1rem 0px 0px 1rem;
 }
 
+/* rightmost items */
 #clock, /* general group */
 #custom-sunset, /* toggles */
 #custom-logout /* customs */ {
-    /* rightmost items */
     margin-left: 0px;
     border-radius: 0px 1rem 1rem 0px;
 }

@@ -16,6 +16,7 @@
         "idle_inhibitor",
         "power-profiles-daemon",
         "custom/sunset",
+        "hyprland/language",
         "pulseaudio",
         "privacy",
         // "network", // enable if not using nm-applet
@@ -24,7 +25,6 @@
         // "temperature",
         "backlight",
         // "keyboard-state",
-        // "hyprland/language",
         "battery",
         "clock",
         "group/traygroup",
@@ -50,6 +50,12 @@
             "*": 3
         },
         "ignore-workspaces": ["special:persistent-apps"]
+    },
+    "hyprland/language": {
+        "format": " {}",
+        "format-en": "en",
+        "format-ru": "ru",
+        "on-click": "hyprctl switchxkblayout current next"
     },
     "keyboard-state": {
         "numlock": true,
@@ -85,7 +91,7 @@
         "tooltip-format": "<big>{:%a %B %d}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}%  ",
         "tooltip": false
     },
     "memory": {

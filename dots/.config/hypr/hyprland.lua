@@ -1,6 +1,8 @@
 -- https://wiki.hypr.land/Configuring/Start/
 -- TODO: split this config into multiple files
 
+local mocha = require("mocha")
+
 
 ------------------
 ---- MONITORS ----
@@ -109,9 +111,8 @@ hl.config({
         border_size = 3,
 
         col = {
-            -- TODO: these need to be converted to use catppuccin imported colors
-            active_border   = { colors = {"rgba(74c7ecee)", "rgba(b4befeee)"}, angle = 45 }, -- sapphire + ee, lavender + ee
-            inactive_border = "rgba(313244aa)", -- surface0 + aa
+            active_border   = { colors = {"rgba("..mocha.sapphireAlpha.."ee)", "rgba("..mocha.lavenderAlpha.."ee)"}, angle = 45 },
+            inactive_border = "rgba("..mocha.surface0Alpha.."aa)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -205,7 +206,6 @@ hl.config({
 
     -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
     master = {
-        new_status = "master",
         special_scale_factor = 0.97,
     },
 
