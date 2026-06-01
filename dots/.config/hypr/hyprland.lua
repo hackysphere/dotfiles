@@ -55,7 +55,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("/usr/lib/pam_kwallet_init && uwsm app -- kwalletd6")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
-  hl.exec_cmd("hyprpm reload -n")
+  -- hl.exec_cmd("hyprpm reload -n") -- not using any plugins anymore
 
   hl.exec_cmd("uwsm app -- clipse -listen")
   hl.exec_cmd("uwsm app -- wl-clip-persist --clipboard regular")
@@ -242,7 +242,7 @@ hl.config({
         kb_layout  = "us,ru",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "compose:rctrl-altgr,lv3:ralt_switch,lv3:ralt_alt,grp:alt_shift_toggle", -- compose key (altgr + right ctrl) and keyboard switch
+        kb_options = "compose:rctrl-altgr,lv3:ralt_switch,lv3:ralt_alt,grp:sclk_toggle", -- compose key (altgr + right ctrl) and keyboard switch with scroll lock (fn+K)
         follow_mouse = 1,
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
@@ -279,7 +279,7 @@ hl.device({
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + Q",         hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Q",         hl.dsp.exec_cmd(terminal .. " --single-instance"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(terminal2))
 hl.bind(mainMod .. " + CTRL + Q",  hl.dsp.exec_cmd("kitten quick-access-terminal"))
 hl.bind(mainMod .. " + C",         hl.dsp.window.close())
@@ -291,7 +291,7 @@ hl.bind(mainMod .. " + SPACE",     hl.dsp.exec_cmd("killall wofi || wofi --show 
 hl.bind(mainMod .. " + P",         hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T",         hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + Escape",       hl.dsp.window.kill())
+hl.bind(mainMod .. " + Escape",    hl.dsp.window.kill())
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pin())
 
 -- Move focus with mainMod + arrow keys
