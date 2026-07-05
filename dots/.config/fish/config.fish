@@ -7,6 +7,7 @@ if status is-interactive
 	set EDITOR nvim
 
 	abbr ks kitten ssh
+	abbr lzg lazygit
 	abbr compose docker compose
 	abbr l "lsd -lg"
 	alias ll "lsd -l"

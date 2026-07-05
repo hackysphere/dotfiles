@@ -58,6 +58,7 @@ git
 hunspell
 hunspell-en_us
 udiskie
+nerd-fonts-inter
 
 additional
 ==========

@@ -348,8 +348,8 @@ hl.bind("XF86AudioMicMute",                           hl.dsp.exec_cmd("wpctl set
 -- Brightness keys
 hl.bind("XF86MonBrightnessUp",           hl.dsp.exec_cmd("swayosd-client --brightness=+5"),                    { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown",         hl.dsp.exec_cmd("swayosd-client --brightness=-5 --min-brightness=0"), { locked = true, repeating = true })
-hl.bind("SHIFT + XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness=+5"),                    { locked = true, repeating = true })
-hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness=-5 --min-brightness=0"), { locked = true, repeating = true })
+hl.bind("SHIFT + XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness=+1"),                    { locked = true, repeating = true })
+hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness=-1 --min-brightness=0"), { locked = true, repeating = true })
 
 -- Keyboard backlight
 -- swayosd doesn't allow for selecting a brightness device

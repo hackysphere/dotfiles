@@ -6,7 +6,7 @@
  * ============== */
 
 * {
-    font-family: FontAwesome, Inter, Helvetica, sans-serif, "Font Awesome 7 Free"; /* will need to eventually update the version number for FA */
+    font-family: Inter, Helvetica, sans-serif, "Font Awesome 7 Free", "Inter Nerd Font Propo"; /* will need to eventually update the version number for FA */
     font-size: 13px;
 }
 
