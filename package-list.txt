@@ -59,6 +59,7 @@ hunspell
 hunspell-en_us
 udiskie
 nerd-fonts-inter
+ydotool
 
 additional
 ==========

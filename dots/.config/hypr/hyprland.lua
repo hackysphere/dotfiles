@@ -160,7 +160,7 @@ hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
 
 -- Default springs
-hl.curve("easy",           { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+hl.curve("easy",           { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
@@ -239,12 +239,13 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us,ru",
-        kb_variant = "",
+        -- only the first four layouts and variants are used (xkb limitation)
+        kb_layout  = "us,ru,fr,ca,jp,jp",
+        kb_variant = ",,,,,kana",
         kb_model   = "",
+        -- must remove lv3:ralt_alt to enable altgr functionality (but it will disable ralt+arrow for browser navigation)
         kb_options = "compose:rctrl-altgr,lv3:ralt_switch,lv3:ralt_alt,grp:sclk_toggle", -- compose key (altgr + right ctrl) and keyboard switch with scroll lock (fn+K)
         follow_mouse = 1,
-
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {
@@ -269,6 +270,12 @@ hl.device({
     name          = "logitech-mx-master-3-1",
     accel_profile = "flat",
     sensitivity   = -0.5,
+})
+
+hl.device({
+    name          = "logitech-m325",
+    accel_profile = "flat",
+    scroll_factor = 2.3, -- also remember to enable solaar to stop scroll wheel activating too much
 })
 
 
@@ -397,6 +404,60 @@ hl.bind(mainMod .. " + B",         hl.dsp.exec_cmd(".config/hypr/power-profiles.
 hl.bind(mainMod .. " + period",    hl.dsp.exec_cmd("smile"))
 hl.bind(mainMod .. " + K",         hl.dsp.exec_cmd(terminal .. " -e qalc"))
 hl.bind("XF86Calculator",          hl.dsp.exec_cmd(terminal .. " -e qalc"))
+
+
+-- FIXME: this is broken and i don't know why
+-- if timestamp_ms() is refreshed with a hyprland notification it works, otherwise it doesn't
+-- Mouse keys
+local mouse_keys_action = (function()
+    local BASE_SPEED = 20
+    local MAX_SPEED = 200
+    local STEP_AMOUNT = 20
+    local TIMEOUT = 50
+
+    local timeout_ts = 0
+    local current_speed = 0
+
+    -- this is NOT a unix timestamp, it is just a random "timestamp" that counts in milliseconds
+    local function timestamp_ms() return os.clock() * 10 * 500 end
+
+    local function inner_func(vertical, inverted)
+        hl.notification.create({timeout=1000, text="THIS IS BROKEN, FIX CONFIG", icon=3})
+        hl.notification.create({timeout=1, text=tostring(timestamp_ms())})
+        if timestamp_ms() > timeout_ts then
+            current_speed = BASE_SPEED
+        else
+            current_speed = current_speed + STEP_AMOUNT
+        end
+        if current_speed > MAX_SPEED then
+            current_speed = MAX_SPEED
+        end
+
+        timeout_ts = timestamp_ms() + TIMEOUT
+
+        local out_speed = current_speed
+        if inverted then out_speed = -current_speed end
+
+        if vertical then
+            hl.dispatch(hl.dsp.exec_cmd("ydotool mousemove -x 0 -y " .. out_speed))
+        else
+            hl.dispatch(hl.dsp.exec_cmd("ydotool mousemove -x " .. out_speed .. " -y 0"))
+        end
+    end
+    return inner_func
+end)()
+
+
+hl.bind(mainMod .. " + CTRL + h", function() mouse_keys_action(false, true)  end, { repeating = true })
+hl.bind(mainMod .. " + CTRL + j", function() mouse_keys_action(true,  false) end, { repeating = true })
+hl.bind(mainMod .. " + CTRL + k", function() mouse_keys_action(true,  true)  end, { repeating = true })
+hl.bind(mainMod .. " + CTRL + l", function() mouse_keys_action(false, false) end, { repeating = true })
+
+hl.bind(mainMod .. " + CTRL + u", hl.dsp.exec_cmd("ydotool click 0xC0"))
+hl.bind(mainMod .. " + CTRL + i", hl.dsp.exec_cmd("ydotool click 0xC2"))
+hl.bind(mainMod .. " + CTRL + o", hl.dsp.exec_cmd("ydotool click 0xC1"))
+hl.bind(mainMod .. " + CTRL + y", hl.dsp.exec_cmd("ydotool click 0xC6"))
+hl.bind(mainMod .. " + CTRL + p", hl.dsp.exec_cmd("ydotool click 0xC5"))
 
 
 --------------------------------
