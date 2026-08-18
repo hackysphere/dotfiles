@@ -294,7 +294,7 @@ hl.bind(mainMod .. " + M",         hl.dsp.exec_cmd("pidof wlogout || wlogout"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(mainMod .. " + E",         hl.dsp.exec_cmd("dolphin"))
 hl.bind(mainMod .. " + F",         hl.dsp.window.float())
-hl.bind(mainMod .. " + SPACE",     hl.dsp.exec_cmd("killall wofi || wofi --show drun"))
+hl.bind(mainMod .. " + SPACE",     hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + P",         hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T",         hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
@@ -392,7 +392,7 @@ hl.bind("CTRL + Print",            hl.dsp.exec_cmd("pidof slurp || HYPRSHOT_DIR=
 
 -- Clipboard
 hl.bind(mainMod .. " + V",         hl.dsp.exec_cmd("kitty --class clipse clipse"))
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("pidof wofi || ((echo 'yes' | wofi -d -p 'clear clipboard?') && clipse -clear && notify-send -e -t 5000 'clipboard cleared');"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("((echo 'yes' | fuzzel --dmenu --prompt 'clear clipboard?') && clipse -clear && notify-send -e -t 5000 'clipboard cleared');"))
 
 -- Misc
 hl.bind(mainMod .. " + L",         hl.dsp.exec_cmd("loginctl lock-session"))

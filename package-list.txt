@@ -32,7 +32,7 @@ xwaylandvideobridge (AUR)
 clipse
 wl-clipboard
 wl-clip-persist
-wofi
+fuzzel
 wpaperd
 wlogout (AUR)
 network-manager-applet
