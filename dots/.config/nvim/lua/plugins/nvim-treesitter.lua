@@ -8,23 +8,38 @@ return {
 		local TS = require('nvim-treesitter')
 
 		TS.install({
-			"lua",
 			"bash",
+			"fish",
+			"nix",
+
+			"lua",
 			"python",
 			"c",
+			"go",
+			"gomod",
+			"sql",
+			"kotlin",
+
 			"html",
+			"html_tags",
+			"css",
 			"javascript",
 			"typescript",
+			"jsx",
 			"json",
+			"svelte",
+
+			"comment",
 			"markdown",
 			"markdown_inline",
-			"yaml",
-			"css",
-			"caddy",
-			"go",
-			"svelte",
+
 			"hyprlang",
-			"fish",
+			"caddy",
+			"dockerfile",
+			"ini",
+			"yaml",
+			"kdl",
+			"kitty",
 		})
 
 		vim.api.nvim_create_autocmd('FileType', {

@@ -226,7 +226,7 @@
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates --interval-seconds 60 --network-interval-seconds 600 --no-zero-output",
-        "on-click": "kitty eos-update --yay",
+        "on-click": "kitty yay",
         "hide-empty-text": true
     },
     "group/traygroup": {

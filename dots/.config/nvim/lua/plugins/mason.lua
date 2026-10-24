@@ -38,12 +38,14 @@ return {
 					-- formatters
 					-- "oxfmt",  -- currently doesn't support svelte
 					"stylua",
+					"nixfmt",
 
 					-- linters
 					"jsonlint",
 
 					-- DAPs
 					"debugpy",
+					"go-debug-adapter",
 				},
 			},
 		},

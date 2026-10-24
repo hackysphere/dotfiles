@@ -17,9 +17,10 @@ hl.monitor({
 })
 
 local monitor_list = {
-    {"desc:BOE 0x07C9",                 1.2},  -- thinkpad t14
-    {"desc:BOE 0x0BCA",                 1.33}, -- framework 13
-    {"desc:ASUSTek COMPUTER INC VA27D", 1},    -- asus monitor
+    {"desc:BOE 0x07C9",                 1.2},   -- thinkpad t14
+    {"desc:BOE 0x0BCA",                 1.177}, -- framework 13
+    {"desc:ASUSTek COMPUTER INC VA27D", 1},     -- asus monitor
+    {"DP-4",                            1.2},   -- wacom; TODO: need to figure out how to name without leaking serial
 }
 for _, mon in ipairs(monitor_list) do
     hl.monitor({
@@ -54,8 +55,6 @@ hl.on("hyprland.start", function ()
 
   hl.exec_cmd("/usr/lib/pam_kwallet_init && uwsm app -- kwalletd6")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
-
-  -- hl.exec_cmd("hyprpm reload -n") -- not using any plugins anymore
 
   hl.exec_cmd("uwsm app -- clipse -listen")
   hl.exec_cmd("uwsm app -- wl-clip-persist --clipboard regular")
@@ -111,8 +110,8 @@ hl.config({
         border_size = 3,
 
         col = {
-            active_border   = { colors = {"rgba("..mocha.sapphireAlpha.."ee)", "rgba("..mocha.lavenderAlpha.."ee)"}, angle = 45 },
-            inactive_border = "rgba("..mocha.surface0Alpha.."aa)",
+            active_border   = { colors = {"#"..mocha.sapphireAlpha.."ee", "#"..mocha.lavenderAlpha.."ee"}, angle = 45 },
+            inactive_border = "#"..mocha.surface0Alpha.."aa",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -136,7 +135,7 @@ hl.config({
             enabled      = true,
             range        = 4,
             render_power = 3,
-            color        = 0xee1a1a1a,
+            color        = "#1a1a1aee",
         },
 
         blur = {
@@ -149,6 +148,37 @@ hl.config({
 
     animations = {
         enabled = true,
+    },
+
+    group = {
+        col = {
+            border_active = { colors = {"#"..mocha.maroonAlpha.."ee", "#"..mocha.redAlpha.."ee"}, angle = 45 },
+            border_inactive = "#"..mocha.surface1Alpha.."aa",
+        },
+
+        groupbar = {
+            enabled = true,
+            blur = true,
+            indicator_height = 0,
+            indicator_gap = 3,
+            keep_upper_gap = false,
+
+            -- this makes it easier to style by just showing text elements
+            gradients = true,
+            gradient_rounding = 15,
+            gradient_rounding_power = 2,
+            height = 24,
+
+            font_size = 16,
+            font_family = "Inter",
+            text_color = "#"..mocha.baseAlpha,
+            text_color_inactive = "#"..mocha.textAlpha,
+
+            col = {
+                active = "#"..mocha.maroonAlpha.."ee",
+                inactive = "#"..mocha.surface0Alpha.."aa",
+            },
+        },
     },
 })
 
@@ -222,7 +252,6 @@ hl.config({
 hl.config({
     misc = {
         force_default_wallpaper  = 1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo    = false, -- If true disables the random hyprland logo / anime girl background. :(
         disable_splash_rendering = true,
         font_family              = "Inter",
         enable_anr_dialog        = true,
@@ -269,7 +298,7 @@ hl.gesture({
 hl.device({
     name          = "logitech-mx-master-3-1",
     accel_profile = "flat",
-    sensitivity   = -0.5,
+    sensitivity   = -0.1,
 })
 
 hl.device({
@@ -286,26 +315,40 @@ hl.device({
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + Q",         hl.dsp.exec_cmd(terminal .. " --single-instance"))
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(terminal2))
-hl.bind(mainMod .. " + CTRL + Q",  hl.dsp.exec_cmd("kitten quick-access-terminal"))
-hl.bind(mainMod .. " + C",         hl.dsp.window.close())
-hl.bind(mainMod .. " + M",         hl.dsp.exec_cmd("pidof wlogout || wlogout"))
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))
-hl.bind(mainMod .. " + E",         hl.dsp.exec_cmd("dolphin"))
-hl.bind(mainMod .. " + F",         hl.dsp.window.float())
-hl.bind(mainMod .. " + SPACE",     hl.dsp.exec_cmd("fuzzel"))
-hl.bind(mainMod .. " + P",         hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + T",         hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + Escape",    hl.dsp.window.kill())
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pin())
+hl.bind(mainMod .. " + Q",             hl.dsp.exec_cmd(terminal .. " --single-instance"))
+hl.bind(mainMod .. " + SHIFT + Q",     hl.dsp.exec_cmd(terminal2))
+hl.bind(mainMod .. " + CTRL + Q",      hl.dsp.exec_cmd("kitten quick-access-terminal"))
+hl.bind(mainMod .. " + C",             hl.dsp.window.close())
+hl.bind(mainMod .. " + M",             hl.dsp.exec_cmd("pidof wlogout || wlogout"))
+hl.bind(mainMod .. " + SHIFT + M",     hl.dsp.exec_cmd("uwsm stop"))
+hl.bind(mainMod .. " + E",             hl.dsp.exec_cmd("dolphin"))
+hl.bind(mainMod .. " + F",             hl.dsp.window.float())
+hl.bind(mainMod .. " + SPACE",         hl.dsp.exec_cmd("fuzzel"))
+hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.exec_cmd("vicinae open"))
+hl.bind(mainMod .. " + P",             hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + T",             hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + CTRL + Escape", hl.dsp.window.kill())
+hl.bind(mainMod .. " + SHIFT + P",     hl.dsp.window.pin())
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+-- Move window with mainMod + SHIFT + CTRL + arrow keys
+hl.bind(mainMod .. " + SHIFT + CTRL + left",  hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + up",    hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + down",  hl.dsp.window.move({ direction = "down" }))
+
+-- Switch between floating and tiled windows
+hl.bind(mainMod .. " + Return", function()
+    if hl.get_active_window().floating then hl.dispatch(hl.dsp.window.cycle_next({ tiled = true }))
+    else hl.dispatch(hl.dsp.window.cycle_next({ floating = true }))
+    end
+end)
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -335,6 +378,18 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Groups (mainMod + ALT)
+-- No mod: move focus and enter/exit, SHIFT: move tab (like with regular windows)
+hl.bind(mainMod .. " + G",                   hl.dsp.group.toggle())
+hl.bind(mainMod .. " + SHIFT + Tab",         hl.dsp.group.prev())
+hl.bind(mainMod .. " + ALT + left",          hl.dsp.group.prev())
+hl.bind(mainMod .. " + Tab",                 hl.dsp.group.next())
+hl.bind(mainMod .. " + ALT + right",         hl.dsp.group.next())
+hl.bind(mainMod .. " + ALT + SHIFT + left",  hl.dsp.group.move_window({ forward = false }))
+hl.bind(mainMod .. " + ALT + SHIFT + right", hl.dsp.group.move_window({ forward = true }))
+hl.bind(mainMod .. " + ALT + up",            hl.dsp.window.move({ out_of_group = true }))
+hl.bind(mainMod .. " + ALT + down",          hl.dsp.window.move({ into_group = "left" }))
 
 -- Volume keys
 hl.bind("XF86AudioRaiseVolume",         hl.dsp.exec_cmd("swayosd-client --output-volume=+5"),          { locked = true, repeating = true })
@@ -395,25 +450,27 @@ hl.bind(mainMod .. " + V",         hl.dsp.exec_cmd("kitty --class clipse clipse"
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("((echo 'yes' | fuzzel --dmenu --prompt 'clear clipboard?') && clipse -clear && notify-send -e -t 5000 'clipboard cleared');"))
 
 -- Misc
-hl.bind(mainMod .. " + L",         hl.dsp.exec_cmd("loginctl lock-session"))
-hl.bind("CTRL + ALT + Delete",     hl.dsp.exec_cmd("pidof wlogout || wlogout"))
-hl.bind("XF86Display",             hl.dsp.exec_cmd("nwg-displays"))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("killall waybar; uwsm app -- waybar"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("wpaperctl next"))
-hl.bind(mainMod .. " + B",         hl.dsp.exec_cmd(".config/hypr/power-profiles.sh"))
-hl.bind(mainMod .. " + period",    hl.dsp.exec_cmd("smile"))
-hl.bind(mainMod .. " + K",         hl.dsp.exec_cmd(terminal .. " -e qalc"))
-hl.bind("XF86Calculator",          hl.dsp.exec_cmd(terminal .. " -e qalc"))
+hl.bind(mainMod .. " + L",              hl.dsp.exec_cmd("loginctl lock-session"))
+hl.bind("CTRL + ALT + Delete",          hl.dsp.exec_cmd("pidof wlogout || wlogout"))
+hl.bind("XF86Display",                  hl.dsp.exec_cmd("nwg-displays"))
+hl.bind(mainMod .. " + SHIFT + R",      hl.dsp.exec_cmd("killall waybar; uwsm app -- waybar"))
+hl.bind(mainMod .. " + SHIFT + W",      hl.dsp.exec_cmd("wpaperctl next"))
+hl.bind(mainMod .. " + B",              hl.dsp.exec_cmd(".config/hypr/power-profiles.sh"))
+hl.bind(mainMod .. " + period",         hl.dsp.exec_cmd("smile"))
+hl.bind(mainMod .. " + K",              hl.dsp.exec_cmd(terminal .. " -e qalc"))
+hl.bind("XF86Calculator",               hl.dsp.exec_cmd(terminal .. " -e qalc"))
+hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd(terminal .. " -e btop"))
 
 
+-- Mouse keys (mainMod + CTRL + vim motions or {U,I,O} for left, middle, right click)
 -- FIXME: this is broken and i don't know why
 -- if timestamp_ms() is refreshed with a hyprland notification it works, otherwise it doesn't
 -- Mouse keys
 local mouse_keys_action = (function()
     local BASE_SPEED = 20
-    local MAX_SPEED = 200
+    local MAX_SPEED = 100
     local STEP_AMOUNT = 20
-    local TIMEOUT = 50
+    local TIMEOUT = 100
 
     local timeout_ts = 0
     local current_speed = 0
@@ -438,10 +495,15 @@ local mouse_keys_action = (function()
         local out_speed = current_speed
         if inverted then out_speed = -current_speed end
 
+        local mousepos = hl.get_cursor_pos()
         if vertical then
-            hl.dispatch(hl.dsp.exec_cmd("ydotool mousemove -x 0 -y " .. out_speed))
+            -- hl.dispatch(hl.dsp.exec_cmd("ydotool mousemove -x 0 -y " .. out_speed))
+            ---@diagnostic disable-next-line: need-check-nil
+            hl.dispatch(hl.dsp.cursor.move({x=mousepos.x, y=mousepos.y+out_speed}))
         else
-            hl.dispatch(hl.dsp.exec_cmd("ydotool mousemove -x " .. out_speed .. " -y 0"))
+            -- hl.dispatch(hl.dsp.exec_cmd("ydotool mousemove -x " .. out_speed .. " -y 0"))
+            ---@diagnostic disable-next-line: need-check-nil
+            hl.dispatch(hl.dsp.cursor.move({x=mousepos.x+out_speed, y=mousepos.y}))
         end
     end
     return inner_func
@@ -534,15 +596,18 @@ hl.window_rule({
 
 -- Zoom popup fix (so they don't close instantly)
 -- doesn't fix all popups because zoom can't use a normal naming scheme
-for _, zoom_title in ipairs({"menu window", "Toolbar Menu", ".*popup", "confirm window"}) do
+for _, zoom_title in ipairs({"menu window", "Toolbar Menu", ".*popup", "confirm window", "Settings"}) do
     hl.window_rule({
         match = {
             class = "^(zoom)$",
             title = "^("..zoom_title..")$",
         },
         stay_focused = true,
+        float = true,
     })
 end
+-- some zoom windows are persistently annoying, so don't focus them
+hl.window_rule({match = { class = "^(zoom)$", title = "^(annotate_toolbar)$"}, float = true})
 
 -- N++ (Steam) under Proton
 hl.window_rule({match = {class = "^(steam_app_230270)$"}, fullscreen = true,})
@@ -556,3 +621,35 @@ hl.window_rule({match = {class = "^(it.mijorus.smile)$"}, float = true, stay_foc
 -- Clipse clipboard manager
 hl.window_rule({match = {class = "^(clipse)$"}, float = true, stay_focused = true, size = {622, 652},})
 
+-----------
+-- other --
+-----------
+
+
+-- taken from wiki for zoom functionality
+local MAX_ZOOM = 3
+local MIN_ZOOM = 1
+local ZOOM_TOGGLE_FACTOR = 1.5
+
+---@param offset number
+---@return nil
+local function zoom(offset)
+    local current = hl.get_config("cursor.zoom_factor")
+    if offset ~= nil then
+        current = current + offset
+    elseif current ~= MIN_ZOOM then
+        current = MIN_ZOOM
+    else
+        current = ZOOM_TOGGLE_FACTOR
+    end
+    current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+    hl.config({ cursor = { zoom_factor = current } })
+end
+
+hl.bind("SUPER + Z", zoom)
+hl.bind("SUPER + equal", function()
+    zoom(0.5)
+end)
+hl.bind("SUPER + minus", function()
+    zoom(-0.5)
+end)

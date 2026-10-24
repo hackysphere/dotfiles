@@ -4,49 +4,55 @@ Name=Default
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=keyboard-ru
+DefaultIM=keyboard-jp
 
 [Groups/0/Items/0]
 # Name
 Name=keyboard-us
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/1]
 # Name
 Name=keyboard-ru
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/2]
 # Name
-Name=keyboard-fr
+Name=keyboard-ru-phonetic
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/3]
 # Name
-Name=keyboard-ca-eng
+Name=keyboard-fr
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/4]
 # Name
-Name=mozc
+Name=keyboard-ca
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/5]
 # Name
-Name=keyboard-jp
+Name=mozc
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/6]
 # Name
+Name=keyboard-jp
+# Layout
+# Layout=
+
+[Groups/0/Items/7]
+# Name
 Name=keyboard-jp-kana
 # Layout
-Layout=
+# Layout=
 
 [GroupOrder]
 0=Default

@@ -66,6 +66,7 @@ additional
 nwg-displays
 hyprsysteminfo (AUR)
 ghostty (this is a second terminal with mostly the same config as kitty; installed for an alternative to kitty)
+vicinae-bin (AUR) (this is a more featured launcher-ish app)
 
 apps
 ====
@@ -140,6 +141,7 @@ sudo systemctl enable --now swayosd-libinput-backend.service
 systemctl --user enable --now hyprsunset
 systemctl --user enable --now mpd
 systemctl --user enable --now mpd-mpris
+systemctl --user enable --now vicinae
 XDG_MENU_PREFIX=arch- kbuildsycoca6 # run AFTER installing everything else and re-logging in
 
 set -U fish_greeting # in fish
