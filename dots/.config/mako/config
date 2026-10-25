@@ -1,0 +1,32 @@
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+margin=5
+border-radius=5
+border-size=3
+
+font=Inter 12
+max-icon-size=64
+icon-path=/usr/share/icons/breeze-dark
+
+max-history=20
+max-visible=-1
+default-timeout=10000
+
+on-button-left=exec makoctl menu -n "$id" -- fuzzel -d -p "mako "
+on-button-right=dismiss
+on-button-middle=dismiss-all
+
+[actionable=true]
+format=(A) <b>%s</b>\n%b++
+
+[urgency=low]
+border-color=#6c7086
+
+[urgency=high]
+border-color=#f38ba8
+
+[mode=dnd]
+invisible=1

@@ -20,9 +20,6 @@
         "pulseaudio",
         "privacy",
         // "network", // enable if not using nm-applet
-        // "cpu",
-        // "memory",
-        // "temperature",
         "backlight",
         // "keyboard-state",
         "battery",
@@ -89,21 +86,6 @@
         "format": " {:%H:%M}",
         "format-alt": "󰃭  {:%Y-%m-%d}",
         "tooltip-format": "<big>{:%a %B %d}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "cpu": {
-        "format": "{usage}%  ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -182,22 +164,19 @@
     },
     "custom/notification": {
         "format": "{} {icon}",
-        "tooltip": false,
         "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
-            "none": "",
+            "normal": "",
+            "dnd": "",
             "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": "",
-            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "inhibited-none": "",
-            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-inhibited-none": ""
+            "not-started": "󰒲"
         },
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/notifications.sh",
         "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
+        "interval": 1,
+        "on-click": "dunstctl history-pop",
+        "on-click-right": "dunstctl set-paused toggle",
+        "on-click-middle": "dunstctl close-all",
         "escape": true
     },
     "custom/logout": {

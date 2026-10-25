@@ -239,10 +239,24 @@ window#waybar.floating #window {
     color: @base;
 }
 
-/* notifications */
-#custom-notification.notification,
+/* notifications (mostly padding adjustments) */
+#custom-notification {
+    padding-left: 4px;
+    padding-right: 12px;
+}
 #custom-notification.dnd-notification {
-    padding-bottom: 5px; /* alignment fix */
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 3px;
+}
+#custom-notification.dnd,
+#custom-notification.dnd-notification {
+    color: @peach;
+}
+#custom-notification.not-started {
+    padding-left: 8px;
+    padding-right: 11px;
+    color: @maroon;
 }
 
 

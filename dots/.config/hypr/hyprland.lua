@@ -67,6 +67,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("uwsm app -- waybar")
   hl.exec_cmd("uwsm app -- hypridle")
   hl.exec_cmd("uwsm app -- wpaperd")
+  hl.exec_cmd("uwsm app -- dunst")
 end)
 
 
@@ -427,10 +428,14 @@ hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 -- Notifications
-hl.bind("XF86NotificationCenter",         hl.dsp.exec_cmd("swaync-client -t -sw"))
-hl.bind(mainMod .. " + N",                hl.dsp.exec_cmd("swaync-client -t -sw"))
-hl.bind("SHIFT + XF86NotificationCenter", hl.dsp.exec_cmd("swaync-client -d -sw"))
-hl.bind(mainMod .. "+ SHIFT + N",         hl.dsp.exec_cmd("swaync-client -d -sw"))
+hl.bind("XF86NotificationCenter",         hl.dsp.exec_cmd("dunstctl close"))
+hl.bind(mainMod .. " + N",                hl.dsp.exec_cmd("dunstctl close"))
+hl.bind("SHIFT + XF86NotificationCenter", hl.dsp.exec_cmd("dunstctl set-paused toggle"))
+hl.bind(mainMod .. " + SHIFT + N",        hl.dsp.exec_cmd("dunstctl set-paused toggle"))
+hl.bind("CTRL + XF86NotificationCenter",  hl.dsp.exec_cmd("dunstctl action"))
+hl.bind(mainMod .. " + CTRL + N",         hl.dsp.exec_cmd("dunstctl action"))
+hl.bind("ALT + XF86NotificationCenter",   hl.dsp.exec_cmd("dunstctl history-pop"))
+hl.bind(mainMod .. " + ALT + N",          hl.dsp.exec_cmd("dunstctl history-pop"))
 
 -- Favorite/shortcut key
 hl.bind("XF86Favorites",          hl.dsp.exec_cmd(shortcutApp))

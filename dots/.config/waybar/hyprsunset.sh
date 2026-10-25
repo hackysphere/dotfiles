@@ -1,9 +1,8 @@
-#/bin/sh
+#!/usr/bin/env sh
 # 6500K is default hyprsunset temperature, so it is hardcoded (may have been a bad decision)
-pidof hyprsunset > /dev/null || (printf "{\"text\": \"failed\", \"alt\": \"failed\", \"tooltip\": \"hyprsunset not started\", \"class\": \"failed\"}" && exit); # waybar requires exit 0 to not break module
+pidof hyprsunset > /dev/null || { printf "{\"text\": \"failed\", \"alt\": \"failed\", \"tooltip\": \"hyprsunset not started\", \"class\": \"failed\"}" && exit; }; # waybar requires exit 0 to not break module
 
 NIGHT_TEMP=5000 # also set in .config/hypr/hyprsunset.conf
-COMMAND=$1
 STATE=""
 TEMP=$(hyprctl hyprsunset temperature)
 

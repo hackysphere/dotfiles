@@ -1,0 +1,26 @@
+[global]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+highlight = "#6c7086"
+frame_color = "#89b4fa"
+separator_color = frame
+
+offset = (10, 10)
+progress_bar_corner_radius = 5
+corner_radius = 10
+
+font = "Inter 12"
+icon_theme = "breeze-dark"
+enable_recursive_icon_lookup = true
+min_icon_size = 72
+
+mouse_left_click = "do_action"
+mouse_right_click = "close_current"
+mouse_middle_click = "close_all"
+dmenu = "fuzzel -d -p 'dunst '"
+
+[urgency_low]
+frame_color = "#6c7086"
+
+[urgency_critical]
+frame_color = "#f38ba8"
