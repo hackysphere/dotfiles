@@ -1,5 +1,4 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
 	fish_config theme choose catppuccin-mocha
 
 	fish_add_path -P ~/.local/bin ~/go/bin
@@ -20,13 +19,28 @@ if status is-interactive
 	abbr cat bat
 	abbr ls lsd
 
-	# this needs to be REALLY cleaned up (a python or fish script or something idk)
-	alias vaultget 'VAULT=(pass-cli vault list | grep -o -P "(?<=\=\=\]: ).*" | fzf) pass-cli item view --vault-name=$VAULT --item-title=(pass-cli item list --vault-name=$VAULT | grep -o -P "(?<=\=\=\]: ).*(?= \(state\=)" | fzf)'
+	function vaultget
+		set vault (pass-cli vault list | grep -o -P "(?<=\=\=\]: ).*" | fzf)
+		set item (pass-cli item list --vault-name=$vault | grep -o -P "(?<=\=\=\]: ).*(?= \(state\=)" | fzf)
+		pass-cli item view --vault-name=$vault --item-title=$item
+	end
 
 	function tsreload
 		# this section is all joined so that it all depends on the previous commands
-		nmcli connection up nano-wg && sudo systemctl restart tailscaled && sleep 5
+		nmcli connection up nano-wg && sudo systemctl restart tailscaled && echo "Waiting for tailscale to reload" && sleep 5
 		nmcli connection down nano-wg
+	end
+
+	function updatevendorgit
+		set prevdir $PWD
+
+		for i in $HOME/Documents/Repos/VENDOR/**/.git
+			echo $i;
+			cd $i/..;
+			git pull;
+		end
+
+		cd "$prevdir"
 	end
 end
 
