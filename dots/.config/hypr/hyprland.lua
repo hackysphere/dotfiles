@@ -237,7 +237,6 @@ hl.config({
 
     -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
     master = {
-        special_scale_factor = 0.97,
     },
 
     -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
@@ -533,6 +532,14 @@ hl.bind(mainMod .. " + CTRL + p", hl.dsp.exec_cmd("ydotool click 0xC5"))
 
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+
+
+hl.workspace_rule({
+    workspace = "s[true]",
+    gaps_in = 10,
+    gaps_out = 25,
+})
+
 
 -- Example window rules that are useful
 
