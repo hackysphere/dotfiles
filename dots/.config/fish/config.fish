@@ -19,12 +19,6 @@ if status is-interactive
 	abbr cat bat
 	abbr ls lsd
 
-	function vaultget
-		set vault (pass-cli vault list | grep -o -P "(?<=\=\=\]: ).*" | fzf)
-		set item (pass-cli item list --vault-name=$vault | grep -o -P "(?<=\=\=\]: ).*(?= \(state\=)" | fzf)
-		pass-cli item view --vault-name=$vault --item-title=$item
-	end
-
 	function tsreload
 		# this section is all joined so that it all depends on the previous commands
 		nmcli connection up nano-wg && sudo systemctl restart tailscaled && echo "Waiting for tailscale to reload" && sleep 5
